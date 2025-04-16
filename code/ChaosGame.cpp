@@ -78,7 +78,7 @@ int main()
 		****************************************
 		*/
 		window.clear();
-		for(int i = 0; i < vertices.size(); i++)
+		for(long unsigned int i = 0; i < vertices.size(); i++)
 		{
 		    RectangleShape rect(Vector2f(10,10));
 		    rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
