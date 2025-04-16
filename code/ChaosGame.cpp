@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <cstdlib>
 
 //Make the code easier to type with "using namespace"
 using namespace sf;
@@ -11,6 +12,8 @@ using namespace std;
 
 int main()
 {
+	srand(time(0));
+
 	// Create a video mode object
 	VideoMode vm(1920, 1080);
 	// Create and open a window for the game
@@ -61,6 +64,7 @@ int main()
 			    {
 				///fourth click
 				///push back to points vector
+				points.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y));
 			    }
 			}
 		    }
@@ -81,6 +85,11 @@ int main()
 		    ///select random vertex
 		    ///calculate midpoint between random vertex and the last point in the vector
 		    ///push back the newly generated coord.
+
+		    Vector2f rv = vertices[rand() % vertices.size()];
+		    Vector2f midpoint((rv.x + points[points.size() - 1].x) / 2.0, (rv.y + points[points.size() - 1].y) / 2.0);
+
+		    points.push_back(midpoint); 
 		}
 	
 		/*
