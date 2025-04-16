@@ -15,6 +15,17 @@ int main()
 	VideoMode vm(1920, 1080);
 	// Create and open a window for the game
 	RenderWindow window(vm, "Chaos Game!!", Style::Default);
+
+	Font font;
+        if (!font.loadFromFile("fonts/Ubuntu-Regular.ttf"))
+        {
+                return 1;
+        }
+
+	Text text;
+	text.setFont(font);
+	text.setString("Click on three points for the vertices.");
+	text.setCharacterSize(24);
 	
 	vector<Vector2f> vertices;
 	vector<Vector2f> points;
@@ -78,6 +89,9 @@ int main()
 		****************************************
 		*/
 		window.clear();
+
+		window.draw(text);
+
 		for(long unsigned int i = 0; i < vertices.size(); i++)
 		{
 		    RectangleShape rect(Vector2f(10,10));
