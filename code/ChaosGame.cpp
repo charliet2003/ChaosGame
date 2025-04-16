@@ -109,6 +109,13 @@ int main()
 		    window.draw(rect);
 		}
 		///TODO:  Draw points
+		for(long unsigned int i = 0; i < points.size(); i++)
+		{
+		    RectangleShape rect(Vector2f(10,10));
+		    rect.setPosition(Vector2f(points[i].x, points[i].y));
+		    rect.setFillColor(Color::Red);
+		    window.draw(rect);
+		}	
 		window.display();
 	}
 }
